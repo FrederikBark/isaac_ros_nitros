@@ -176,7 +176,7 @@ public:
     const std::string & topic,
     const rmw_qos_profile_t qos,
     rclcpp::SubscriptionOptions options,
-    const std::string & compatible_data_format = "",
+    const std::string & compatible_data_format,
     const NitrosDiagnosticsConfig & diagnostics_config = {})
   {
     unsubscribe();
@@ -204,6 +204,9 @@ public:
     }
   }
 
+  void subscribe(NodeType* node, const std::string& topic, rmw_qos_profile_t qos, rclcpp::SubscriptionOptions options) override {
+    this->subscribe(node, topic, qos, options, "", {});
+  }
   /**
    * \brief Re-subscribe to a topic.  Only works if this subscriber has previously been subscribed to a topic.
    */

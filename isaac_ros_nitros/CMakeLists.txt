@@ -50,23 +50,23 @@ endif()
 
 # Install exported libraries
 install(FILES ${CUAPRILTAGS_LIB_PATH}/libcuapriltags.a
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/cuapriltags/lib")
+	DESTINATION "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/cuapriltags/lib")
 install(FILES
       ${CUVSLAM_LIB_PATH}/libcuvslam.so
       ${CUVSLAM_LIB_PATH}/cuvslam_api_launcher
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/cuvslam/lib")
+      DESTINATION "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/cuvslam/lib")
 
 # Install header files for cuvslam
 install(FILES lib/cuvslam/include/cuvslam.h
               lib/cuvslam/include/ground_constraint.h
-        DESTINATION "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/cuvslam/include")
+	      DESTINATION "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/cuvslam/include")
 
 # cuVSLAM (register path)
 ament_index_register_resource(cuvslam CONTENT share/${PROJECT_NAME}/cuvslam)
 
 # Install the header file for cuapriltags
 install(FILES lib/cuapriltags/cuapriltags/cuAprilTags.h
-        DESTINATION "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/cuapriltags/cuapriltags")
+	DESTINATION "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/cuapriltags/cuapriltags")
 
 # cuApriltags (register path)
 ament_index_register_resource(cuapriltags CONTENT share/${PROJECT_NAME}/cuapriltags)
@@ -75,6 +75,8 @@ ament_index_register_resource(cuapriltags CONTENT share/${PROJECT_NAME}/cuaprilt
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(vpi REQUIRED)
 find_package(yaml-cpp)
+find_package(ament_index_cpp)
+find_package(negotiated)
 
 # NitrosNode
 ament_auto_add_library(${PROJECT_NAME} SHARED
@@ -92,6 +94,9 @@ target_link_libraries(${PROJECT_NAME}
   Eigen3::Eigen
   vpi
   yaml-cpp
+  ament_index_cpp::ament_index_cpp
+  gxf_isaac_optimizer::gxf_isaac_optimizer
+  #negotiated
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES
   BUILD_WITH_INSTALL_RPATH TRUE

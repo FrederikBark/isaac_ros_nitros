@@ -65,6 +65,7 @@ public:
 
 private:
   // Subscribers
+  std::shared_ptr<nvidia::isaac_ros::nitros::message_filters::Subscriber<nvidia::isaac_ros::nitros::NitrosImageView>> ptr_t;
   nvidia::isaac_ros::nitros::message_filters::Subscriber<nvidia::isaac_ros::nitros::NitrosImageView>
   image_sub_1_;
   ::message_filters::Subscriber<sensor_msgs::msg::CameraInfo> camera_info_sub_1_;

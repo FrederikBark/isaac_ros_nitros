@@ -24,6 +24,7 @@ endif()
 
 find_package(ament_cmake_auto REQUIRED)
 ament_auto_find_build_dependencies()
+find_package(isaac_ros_managed_nitros REQUIRED)
 
 ament_auto_add_library(isaac_ros_nitros_camera_drop_node SHARED
   src/isaac_ros_nitros_camera_drop_node.cpp
