@@ -12,7 +12,7 @@
 
   
   <!--exec_depend>cuda_python</exec_depend-->
-  <exec_depend>posix_ipc</exec_depend>
+  <!--exec_depend>posix_ipc</exec_depend-->
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>isaac_ros_nitros_bridge_interfaces</exec_depend>
